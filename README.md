@@ -154,9 +154,14 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
-Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+Stephanie Chepkirui - [Github](https://github.com/Stephanie514) / [Twitter]()  
+Fiona Nyadero - [Github](https://github.com/Fiona-Nyadero) / [Twitter](https://twitter.com/fiona-nyadero)
 
 Second part of Airbnb: Joann Vuong
 ## License
-Public Domain. No copy write protection. 
+Public Domain. No copy write protection.
+
+Second part of Airbnb clone project: by Steph and Fiona
+## License
+Public Domain. No copy write protection.
+Updated RESTful API feature
