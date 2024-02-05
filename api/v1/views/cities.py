@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Create a new view for City objects - handles all default RESTful API actions.
+Createa new view for City objects - handles all default RESTful API actions.
 """
 
 from flask import abort, jsonify, request
@@ -13,7 +13,7 @@ from models import storage
                  strict_slashes=False)
 def get_cities(state_id):
     """
-    Retrieves the list of all City objects of a State.
+    This Retrieves the list of all City objects of a State.
     """
     state = storage.get(State, state_id)
     if not state:
@@ -26,7 +26,7 @@ def get_cities(state_id):
 @app_views.route('/cities/<city_id>', methods=['GET'], strict_slashes=False)
 def get_city_details(city_id):
     """
-    Retrieves a City object.
+    This Retrieves a City object.
     """
     city = storage.get(City, city_id)
     if city:
@@ -38,7 +38,7 @@ def get_city_details(city_id):
 @app_views.route('/cities/<city_id>', methods=['DELETE'])
 def delete_city_by_id(city_id):
     """
-    Deletes a City object.
+    This Deletes a City object.
     """
     city = storage.get(City, city_id)
     if city:
@@ -52,7 +52,7 @@ def delete_city_by_id(city_id):
                  strict_slashes=False)
 def create_new_city(state_id):
     """
-    Creates a City object.
+    This Creates a City object.
     """
     state = storage.get(State, state_id)
     if not state:
@@ -75,7 +75,7 @@ def create_new_city(state_id):
 @app_views.route('/cities/<city_id>', methods=['PUT'], strict_slashes=False)
 def update_city_details(city_id):
     """
-    Updates a City object.
+    This Updates a City object.
     """
     city = storage.get(City, city_id)
     if city:
