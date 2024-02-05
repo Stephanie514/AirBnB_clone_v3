@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Createa new view for City objects - handles all default RESTful API actions.
+Create a new view for City objects - handles all default RESTful API actions.
 """
 
 from flask import abort, jsonify, request
@@ -9,11 +9,11 @@ from models.city import City
 from api.v1.views import app_views
 from models import storage
 
-@app_views.route('/states/<state_id>/cities', methods=['GET'],
-                 strict_slashes=False)
+
+@app_views.route('/states/<state_id>/cities', methods=['GET'], strict_slashes=False)
 def get_cities(state_id):
     """
-    This Retrieves the list of all City objects of a State.
+    Retrieves the list of all City objects of a State.
     """
     state = storage.get(State, state_id)
     if not state:
@@ -26,7 +26,7 @@ def get_cities(state_id):
 @app_views.route('/cities/<city_id>', methods=['GET'], strict_slashes=False)
 def get_city_details(city_id):
     """
-    This Retrieves a City object.
+    Retrieves a City object.
     """
     city = storage.get(City, city_id)
     if city:
@@ -36,9 +36,9 @@ def get_city_details(city_id):
 
 
 @app_views.route('/cities/<city_id>', methods=['DELETE'])
-def delete_city_by_id(city_id):
+def delete_city(city_id):
     """
-    This Deletes a City object.
+    Deletes a City object.
     """
     city = storage.get(City, city_id)
     if city:
@@ -48,11 +48,11 @@ def delete_city_by_id(city_id):
     else:
         abort(404)
 
-@app_views.route('/states/<state_id>/cities', methods=['GET'],
-                 strict_slashes=False)
-def create_new_city(state_id):
+
+@app_views.route('/states/<state_id>/cities', methods=['POST'], strict_slashes=False)
+def create_city(state_id):
     """
-    This Creates a City object.
+    Creates a City object.
     """
     state = storage.get(State, state_id)
     if not state:
@@ -73,9 +73,9 @@ def create_new_city(state_id):
 
 
 @app_views.route('/cities/<city_id>', methods=['PUT'], strict_slashes=False)
-def update_city_details(city_id):
+def update_city(city_id):
     """
-    This Updates a City object.
+    Updates a City object.
     """
     city = storage.get(City, city_id)
     if city:
