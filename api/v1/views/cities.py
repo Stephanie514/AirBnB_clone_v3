@@ -9,11 +9,9 @@ from models.city import City
 from api.v1.views import app_views
 from models import storage
 
-
-@app_views.route('/states/<state_id>/cities',
-                 methods=['GET'],
+@app_views.route('/states/<state_id>/cities', methods=['GET'],
                  strict_slashes=False)
-def list_cities_by_state(state_id):
+def get_cities(state_id):
     """
     Retrieves the list of all City objects of a State.
     """
@@ -50,9 +48,7 @@ def delete_city_by_id(city_id):
     else:
         abort(404)
 
-
-@app_views.route('/states/<state_id>/cities',
-                 methods=['GET'],
+@app_views.route('/states/<state_id>/cities', methods=['GET'],
                  strict_slashes=False)
 def create_new_city(state_id):
     """
