@@ -10,15 +10,15 @@ from api.v1.views import app_views
 from models import storage
 
 
-@app_views.route('/states/<state_id>/cities', methods=['GET'],
-                 strict_slashes=False)
+@app_views.route('/states/<state_id>/cities',
+                 methods=['GET'], strict_slashes=False)
 def get_cities_by_state(state_id):
     """
     Retrieves the list of all City objects of a State.
     """
     city_state = storage.get(CityState, state_id)
     if not city_state:
-        return jsonify([])
+        abort(404)
 
     city_list = [city.to_dict() for city in city_state.cities]
     return jsonify(city_list)
@@ -50,8 +50,8 @@ def delete_city(city_id):
         abort(404)
 
 
-@app_views.route('/states/<state_id>/cities', methods=['POST'],
-                 strict_slashes=False)
+@app_views.route('/states/<state_id>/cities',
+                 methods=['POST'], strict_slashes=False)
 def create_city(state_id):
     """
     Creates a City object.
