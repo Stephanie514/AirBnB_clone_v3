@@ -1,24 +1,23 @@
 #!/usr/bin/python3
-"""The index file"""
+"""create a route /status on the object app_views that returns a JSON"""
 from api.v1.views import app_views
-from flask import jsonify
+from flask import Flask, jsonify
 from models import storage
 
 
 @app_views.route('/status', methods=['GET'])
-def api_status():
-    response = {'status': 'OK'}
-    return jsonify(response)
+def status():
+    return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats', methods=['GET'])
-def get_stats():
-    stats = {
-        'amenities': storage.count('Amenity'),
-        'cities': storage.count('City'),
-        'places': storage.count('Place'),
-        'reviews': storage.count('Review'),
-        'states': storage.count('State'),
-        'users': storage.count('User')
+def stats():
+    stored_obj = {
+        "amenities": storage.count('Amenity'),
+        "cities": storage.count('City'),
+        "places": storage.count('Place'),
+        "reviews": storage.count('Review'),
+        "states": storage.count('State'),
+        "users": storage.count('User')
     }
-    return jsonify(stats)
+    return jsonify(stored_obj)
