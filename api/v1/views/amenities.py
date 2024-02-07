@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Create a new view for Amenity objects - handles RESTful API actions.
-"""
+"""Create a new view for Amenity objects"""
 
 from flask import jsonify, request
 from api.v1.views import app_views
