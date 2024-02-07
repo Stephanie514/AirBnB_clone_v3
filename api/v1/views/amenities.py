@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Create a new view for Amenity objects - handles all default RESTful API actions.
+Create a new view for Amenity objects - handles RESTful API actions.
 """
 
 from flask import jsonify, request
