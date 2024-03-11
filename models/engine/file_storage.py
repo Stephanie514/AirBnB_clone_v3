@@ -70,6 +70,7 @@ class FileStorage:
         self.reload()
 
     def get(self, cls, id):
+<<<<<<< HEAD
         """ Returns object by class && ID."""
         if cls in classes.values() and id and type(id) == str:
             gt_object = self.all(cls)
@@ -89,3 +90,20 @@ class FileStorage:
         else:
             cnt = len(models.storage.all(cls).values())
         return cnt
+=======
+        """Retrieve object(s) based on class and ID"""
+        objts = self.all(cls).values()
+        for obj in objts:
+            if obj.id == id:
+                return obj
+        return None
+
+    def count(self, cls=None):
+        """Returns the number of objects in storage"""
+        if cls:
+            cnt = 0
+            for obj in self.all(cls).values():
+                cnt += 1
+            return cnt
+        return len(self.all())
+>>>>>>> 3963fb6d1610fadaa1f58ff09ea437c727695207
