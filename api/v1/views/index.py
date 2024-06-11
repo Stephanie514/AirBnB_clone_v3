@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """ Index """
 from models.amenity import Amenity
 from models.city import City
@@ -28,3 +29,27 @@ def number_objects():
         num_objs[names[i]] = storage.count(classes[i])
 
     return jsonify(num_objs)
+=======
+"""create a route /status on the object app_views that returns a JSON"""
+from api.v1.views import app_views
+from flask import Flask, jsonify
+from models import storage
+
+
+@app_views.route('/status', methods=['GET'])
+def status():
+    return jsonify({"status": "OK"})
+
+
+@app_views.route('/stats', methods=['GET'])
+def stats():
+    stored_obj = {
+        "amenities": storage.count('Amenity'),
+        "cities": storage.count('City'),
+        "places": storage.count('Place'),
+        "reviews": storage.count('Review'),
+        "states": storage.count('State'),
+        "users": storage.count('User')
+    }
+    return jsonify(stored_obj)
+>>>>>>> 5f13e6cd59cb591c5fe7a4b2477ab188fb762915

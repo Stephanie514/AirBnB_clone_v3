@@ -76,6 +76,7 @@ class DBStorage:
         self.__session.remove()
 
     def get(self, cls, id):
+<<<<<<< HEAD
         """
         Returns the object based on the class name and its ID, or
         None if not found
@@ -104,3 +105,38 @@ class DBStorage:
             count = len(models.storage.all(cls).values())
 
         return count
+=======
+<<<<<<< HEAD
+        """ Returns object by class && ID."""
+        if cls in classes.values() and id and type(id) == str:
+            gt_object = self.all(cls)
+            for key, value in gt_object.items():
+                if key.split(".")(1) == id:
+                    return value
+        return None
+
+    def count(self, cls=None):
+        """Counts the number of objects in database."""
+        allclasses = classes.values()
+
+        if not cls:
+            cnt = 0
+            for classs in allclasses:
+                cnt += len(models.storage.all(classs).values())
+        else:
+            cnt = len(models.storage.all(cls).values())
+        return cnt
+=======
+        """Retrieves object(s) based on class & ID"""
+        objts = self.__session.query(cls).filter(cls.id == id).all()
+        if objts:
+            return objts[0]
+        return None
+
+    def count(self, cls=None):
+        """Returns the number of objects in storage db"""
+        if cls:
+            return self.__session.query(cls).count()
+        return self.__session.query().count()
+>>>>>>> 3963fb6d1610fadaa1f58ff09ea437c727695207
+>>>>>>> 5f13e6cd59cb591c5fe7a4b2477ab188fb762915
