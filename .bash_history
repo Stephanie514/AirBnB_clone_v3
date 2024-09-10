@@ -96,7 +96,7 @@ sudo rm -r RSA-Factoring-Challenge/
 /ls
 s
 ls
-git clone https://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@github.com/Stephanie514/RSA-Factoring-Challenge.git
+git clone https://github.com/Stephanie514/RSA-Factoring-Challenge.git
 ls
 PYTHON/
 cd PYTHON/
